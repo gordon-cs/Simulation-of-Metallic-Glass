@@ -31,7 +31,7 @@ The user can then use software to analyze data, for instance, show temperature d
 
 ## 2. Proposed system
 ### 2.1 Overview
-Our client software will allow the user to login to the server on the supercomputer and link initial-condition xml file, which includes properties such as initial temperature, tube radius, heat conductivity, reservoir temperature. It can also open any existing result files, display the cooling process and show analysis options.
+Our client software will allow the user to login to the server on the supercomputer and link initial-condition xml file, which includes properties such as initial temperature, tube radius, heat conductivity, reservoir temperature. It can also open any existing result files, display the cooling process and show analysis options. Client will also have a tool set for graph-cropping or save.
 
 The server on the supercomputer receives initial-condition files, triggers computations, and send back the result file onto the user's computer. No result files will be saved on server computer.
 
