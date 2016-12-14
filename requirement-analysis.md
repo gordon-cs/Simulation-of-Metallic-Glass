@@ -4,8 +4,7 @@ _Updated on 12/14 by Kuo Lu & Chris Qiao_
 ## 1. Introduction
 
 ### 1.1 Purpose of the system
-The purpose of the system is to produce heat diffusion simulation of the
-quenching in the production process of metallic glass.
+The purpose of the system is to produce heat diffusion simulation of the quenching in the production process of metallic glass.
 
 ### 1.2 Scope of the system
 The system may be accessed by researchers around the world.
@@ -21,20 +20,24 @@ After computation is done, the client software shall receive and read the binary
 
 
 ### 1.5 Overview
-A user can use client software to send initial conditions to the server.
+Manual and input template can both be found on Github repository.
+
+A user can use client software to send initial-condition xml file to the server. The template xml file has default values. It allows user to add/change constants, or add path to other files (such as matrix csv files) in the xml template.
+
 After the server finishes computations, it sends back the data file.
+
 The data file consists of hundreds of matrices with each one representing temperatures at 2-D locations at a specific time.
 The user can then use software to analyze data, for instance, show temperature difference between two different points at the same time on the graph, or show a graph of temperature vs. time at one specific position.
 
 ## 2. Proposed system
 ### 2.1 Overview
-Our client software will allow the user to login to the server on the supercomputer and enter initial conditions, such as initial temperature, tube radius, heat conductivity, reservoir temperature. It can also open any existing result files, display the cooling process and show analysis options.
+Our client software will allow the user to login to the server on the supercomputer and link initial-condition xml file, which includes properties such as initial temperature, tube radius, heat conductivity, reservoir temperature. It can also open any existing result files, display the cooling process and show analysis options.
 
 The server on the supercomputer receives initial-condition files, triggers computations, and send back the result file onto the user's computer. No result files will be saved on server computer.
 
 
 ### 2.2 Functional requirements
-The program asks the user to enter required information for simulation calculation, so it has to provide some text fields or lists to help the user input those information. After the calculation, the program produce a visualized video/image that shows temperature vs. time at each position.
+The program asks the user to enter required information for simulation calculation, so it has link to input xml file that has these values. After the calculation, the program produce a visualized video/image that shows temperature vs. time at each position.
 
 
 ### 2.3 Nonfunctional requirements
