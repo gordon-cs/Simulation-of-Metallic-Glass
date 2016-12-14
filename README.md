@@ -1,4 +1,7 @@
-# Simulation-of-Metallic-Glass
+# Simulation of Metallic Glass
+_by Kuo Lu & Chris Qiao_
+## Abstract
+This project contains a server program that computes and produces temperature vs. time simulation of a quenching metallic glass on Gordon College's supercomputer. The project also includes a client software to call the server and read result file.
 
 ## Table of Contents
 
