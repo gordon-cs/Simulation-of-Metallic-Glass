@@ -12,9 +12,9 @@ _Updated on 12/12/16 by Kuo & Chris_
 2. The second functionality is to log in the server, because in order to use the server, we have to log in using user name, password and the ip address of the workstation.
 3. The third functionality is to send inputs(initial conditions for calculation) to the server.
 
-![Image of user class diagram](diagrams/classDiagram_user.png)
+![Image of user class diagram](../diagrams/classDiagram_user.png)
 ##### 2. Server class design
 1. Input submission from client software will trigger the controller. The controller will read and trigger the method user desires to use, as well as read and send the initial conditions.
 2. The computational method class will compute and generate the result file. After the computation is done, the controller will send back to client software.
 3. Parallelization: We will use openMP, MPI, CUDA, or a combination for computation.
-![Image of user class diagram](diagrams/classDiagram_server.png)
+![Image of user class diagram](../diagrams/classDiagram_server.png)

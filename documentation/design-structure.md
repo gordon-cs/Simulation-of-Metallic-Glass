@@ -14,7 +14,7 @@ The client software will also have two parts:
 
 ### 2. Diagrams
 #### 2.1 Sequence Diagram
-![Image of sequence diagram](diagrams/sequence_diagram.png)
+![Image of sequence diagram](../diagrams/sequence_diagram.png)
 
 #### 2.2 Interface Diagram
-![Image of interface diagram](diagrams/interface_model.png)
+![Image of interface diagram](../diagrams/interface_model.png)
