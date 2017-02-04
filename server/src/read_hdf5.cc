@@ -1,3 +1,12 @@
+/* To-do list:
+ * 1. converting from row major to col major
+ * 2. converting to 3-d matrix from 2-d
+ *
+ * IMPORTANT: Fuctions read binary files using column major
+ * since column major is commonly used among scientific softwares
+ * such us MATLAB, Fortran, and GNU Octave
+ */
+
 #include <stdio.h>
 #include <cstdlib>
 #include "read_hdf5.h"
@@ -5,7 +14,7 @@
 //=============================================================================
 //===================== functions to read HDF5 files ==========================
 
-/// Check return values from HDF5 routines
+// Check return values from HDF5 routines
 #define CHKERR(status,name) if ( status < 0 ) \
     fprintf( stderr, "Error: nonzero status (%d) in %s\n", status, name )
 
