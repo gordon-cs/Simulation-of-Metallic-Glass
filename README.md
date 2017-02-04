@@ -13,7 +13,6 @@ This project contains a server program that computes and produces temperature vs
 5. [System Design Document](documentation/system-design-document.md)
 
 ***
-Manual will be updated soon
 
 ## Getting Started
 
@@ -21,18 +20,20 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-#### server
-You need HDF5 installed
+#### Server
+1. Need HDF5 installed.
 
-```
-Give examples
-```
-[//]: # (comment)
+2. The following are optional, but recommended for better better performance:
+ * MPICH
+ * CUDA
+
+#### Client Software
+bla bla bla bla
+
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
+#### Server
+Download a copy of Server folder from our github repository.
 
 ```
 Give the example
