@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 #include <cstdlib>
+#include <vector>
 #include "read_hdf5.h"
 #include "default_constants.h"
 using namespace std;
@@ -26,15 +27,15 @@ double qc = QC;
 //=============================================================================
 //================== Sequential calculation functions =========================
 
-void initialize_temp()
+void sequential(vector<string> input_variables, vector <double> inputs)
 {
+  if (input_variables.size() == inputs.size()){
+    for(int i = 0; i < inputs.size(); i++){
+       printf( "the %s is: %f\n", input_variables[i].c_str(), inputs[i] );
+    }
+  }
+  else EXIT_FAILURE;
 
-}
-
-//----------------------------- Main Function ---------------------------------
-
-int main(int argc, char* argv[])
-{
-  printf("radius is %f mm\nthickness is %f mm\n", radius, qc);
-  return 0;
+ 
+  
 }

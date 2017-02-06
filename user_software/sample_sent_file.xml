@@ -4,7 +4,7 @@
   it illustrates how to set variables as default or specified,
 -->
 
-<calculation method="serial"> <!-- specify calculation method -->
+<calculation method="sequential"> <!-- specify calculation method -->
   <!-- section 1: general information -->
   <general>
     <time_length> default </time_length> <!-- 15 sec by default-->

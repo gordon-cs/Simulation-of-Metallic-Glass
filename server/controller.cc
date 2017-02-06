@@ -7,8 +7,13 @@
 #include <stdlib.h>
 #include <iostream>
 #include <math.h>
+// #include <string>
+#include <vector>
 #include "src/tinyxml2.h"
+#include "src/sequential.cc"
 
+using namespace tinyxml2;
+using namespace std;
 
 //=============================================================================
 //============================= functions =====================================
@@ -28,13 +33,23 @@ int main(int argc, char * argv[])
 
   printf( "infile name %s \n", in_name);
 
-  tinyxml2::XMLDocument doc;
+  // read xml file and get necessary information
+  vector<string> input_variables;
+  vector<double> inputs;
+
+  XMLDocument doc;
   doc.LoadFile( in_name );
 
-  const char* height = doc.FirstChildElement( "calculation" )
-    ->FirstChildElement( "tube" )->FirstChildElement( "height" )->GetText();
+  string method = doc.FirstChildElement( "calculation" ) -> Attribute("method");
+
+  double height = stod(doc.FirstChildElement( "calculation" )
+    ->FirstChildElement( "tube" )->FirstChildElement( "height" )->GetText());
+  input_variables.push_back("height");
+  inputs.push_back(height);
   
-  printf( "the height is: %s\n", height );
-  
+
+  // run the method
+  if (method == "sequential") sequential(input_variables, inputs);
+
   return 0;
 }
