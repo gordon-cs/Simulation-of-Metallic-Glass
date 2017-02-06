@@ -8,7 +8,7 @@
  *
  * @author jiaqi_000
  */
-import ch.systemsx.cisd.hdf5.IHDF5SimpleReader;
+
 import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -22,7 +22,6 @@ import java.awt.Dimension;
 
 public  class HeatGraph extends JPanel{
     public static BufferedImage image;
-    public static IHDF5SimpleReader reader;
   
     public HeatGraph(){
         super(); 
