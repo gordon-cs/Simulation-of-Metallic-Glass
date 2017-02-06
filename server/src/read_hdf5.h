@@ -6,6 +6,8 @@
 #define READ_HDF5_H
 
 #include <hdf5.h>
+#include <stdio.h>
+#include <cstdlib>
 
 void dumpVector(double* x, int cols);
 void dumpMatrix(
