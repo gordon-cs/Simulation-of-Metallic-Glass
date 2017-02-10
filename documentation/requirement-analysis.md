@@ -90,7 +90,7 @@ The output result file will be in object model. It is static.
 There is no dynamic model in this project.
 
 #### 2.4.5 User interface—navigational paths and screen mock-ups
-![Image of interface diagram](diagrams/interface_model.png)
+![Image of interface diagram](../diagrams/interface_model.png)
 
 ## 3. Glossary
 | Vocabulary   | Definition   |
