@@ -6,8 +6,8 @@
 #include <stdio.h>
 #include <cstdlib>
 #include <vector>
-#include "read_hdf5.h"
-#include "default_constants.h"
+#include "../include/read_hdf5.h"
+#include "../include/default_constants.h"
 using namespace std;
 
 //------------------- assign constants to default values ----------------------
@@ -31,7 +31,7 @@ void sequential(vector<string> input_variables, vector <double> inputs)
 {
   if (input_variables.size() == inputs.size()){
     for(int i = 0; i < inputs.size(); i++){
-       printf( "the %s is: %f\n", input_variables[i].c_str(), inputs[i] );
+       printf( "Hello this is Sequential version; \nthe %s is: %f\n", input_variables[i].c_str(), inputs[i] );
     }
   }
   else EXIT_FAILURE;

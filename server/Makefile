@@ -1,38 +1,51 @@
-# Makefile for sequential.cc compilation
-# created by: Kuo Lu, Updated on: 01/13/2017
+#
+# TODO: 
+#
 
-# define variables
-# CC=g++
-# OBJECTS = sequential.o read_hdf5.o
+# Determine the platform
+UNAME_S := $(shell uname -s)
 
-# sequential: $(OBJECTS)
-# 	$(CC) -o sequential $(OBJECTS) -lhdf5
+# CC
+ifeq ($(UNAME_S),Darwin)
+  CC := clang++ -arch x86_64
+else
+  CC := g++
+endif
 
-# sequential.o : read_hdf5.h default_constants.h
-# read_hdf5.o : read_hdf5.h
+# Folders
+SRCDIR := src
+BUILDDIR := build
+TARGET := bin
 
-# .PHONY : clean
-# clean:
-# 	rm sequential $(OBJECTS)
+# Targets
+EXECUTABLE := SimulationRunner
+TARGET := $(TARGETDIR)/$(EXECUTABLE)
+ 
+SRCEXT := cpp
+SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
+OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
+CFLAGS := -g # -Wall
+LIB := -pthread -lmongoclient -L lib -lboost_thread-mt -lboost_filesystem-mt -lboost_system-mt
+INC := -I include
 
-all: controller staticlib unitTest
+$(TARGET): $(OBJECTS)
+  @echo " Linking..."
+  @echo " $(CC) $^ -o $(TARGET) $(LIB)"; $(CC) $^ -o $(TARGET) $(LIB)
 
-rebuild: clean all
+$(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
+  @mkdir -p $(BUILDDIR)
+  @echo " $(CC) $(CFLAGS) $(INC) -c -o $@ $<"; $(CC) $(CFLAGS) $(INC) -c -o $@ $<
 
-controller: controller.cc src/libtinyxml2.a
-
-unitTest: unitTest.cc src/libtinyxml2.a
-
-.PHONY : clean
 clean:
-	$(RM) src/*.a src/*.o controller unitTest
+  @echo " Cleaning..."; 
+  @echo " $(RM) -r $(BUILDDIR) $(TARGET)"; $(RM) -r $(BUILDDIR) $(TARGET)
 
-test: clean unitTest
-	./unitTest
+# Tests
+tester:
+  $(CC) $(CFLAGS) test/unitTest.cpp $(INC) $(LIB) -o bin/unitTest
 
-staticlib: src/libtinyxml2.a
+# Spikes
+ticket:
+  $(CC) $(CFLAGS) spikes/ticket.cpp $(INC) $(LIB) -o bin/ticket
 
-src/libtinyxml2.a: src/tinyxml2.o
-	$(AR) $(ARFLAGS)s $@ $^
-	
-tinyxml2.o: src/tinyxml2.cpp src/tinyxml2.h
+.PHONY: clean

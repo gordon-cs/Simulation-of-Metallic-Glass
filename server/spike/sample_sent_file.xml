@@ -23,7 +23,7 @@
     <!-- to attach a file, place the file path -->
     <temperature>å
       <!-- file is expected in the same folder or its daughter folder -->
-      <path> temp.csv </path>
+      <path> temp.h5 </path>
     </temperature>        <!-- default 1200 C  -->
     <conductivity>
       <!-- if file isn't in the same folder, specify its full path -->
