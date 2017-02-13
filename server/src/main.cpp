@@ -9,8 +9,8 @@
 #include <math.h>
 // #include <string>
 #include <vector>
-#include "src/tinyxml2.h"
-#include "src/sequential.cc"
+#include "../include/tinyxml2.h"
+// #include "sequential.cpp"
 
 using namespace tinyxml2;
 using namespace std;
@@ -49,7 +49,7 @@ int main(int argc, char * argv[])
   
 
   // run the method
-  if (method == "sequential") sequential(input_variables, inputs);
+  // if (method == "sequential") sequential(input_variables, inputs);
 
   return 0;
 }
