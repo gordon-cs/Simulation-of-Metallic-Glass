@@ -1,20 +1,13 @@
- /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 /**
  *
  * @author jiaqi_000
  */
-
+//need review
 import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 import java.awt.Dimension;
 import edu.mines.jtk.awt.ColorMap;
 import java.awt.Color;
