@@ -24,19 +24,21 @@ import java.awt.Color;
 
 public  class HeatGraph extends JPanel{
     public static BufferedImage bufferedImage;
+    private int length;
+    private int width;
   
-    public HeatGraph()
+    public HeatGraph(double data[][])
   { 
     super(); 
+    length = data.length;
+    width = data[0].length;
     ColorMap myColorMap = new ColorMap(100, 1200, ColorMap.JET);
-    Color [][] image = new Color[1000][1000];
-    double [][] temp = new double [1000][1000];
-    for(int i = 0; i<1000;i++)
+    Color [][] image = new Color[length][width];
+    for(int i = 0; i<length;i++)
     {
-        for(int j = 0; j<1000;j++)
+        for(int j = 0; j<width;j++)
         {
-            temp[i][j] = 1200-(i+j)/2;
-            image[i][j] = myColorMap.getColor(temp[i][j]);
+            image[i][j] = myColorMap.getColor(data[i][j]);
         }
     }
     bufferedImage = new BufferedImage(image.length, image[0].length,BufferedImage.TYPE_INT_RGB);
