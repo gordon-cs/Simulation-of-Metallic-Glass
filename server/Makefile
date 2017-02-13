@@ -15,15 +15,20 @@
 # clean:
 # 	rm sequential $(OBJECTS)
 
-all: controller staticlib
+all: controller staticlib unitTest
 
 rebuild: clean all
 
 controller: controller.cc src/libtinyxml2.a
 
+unitTest: unitTest.cc src/libtinyxml2.a
+
 .PHONY : clean
 clean:
-	$(RM) src/*.a src/*.o controller
+	$(RM) src/*.a src/*.o controller unitTest
+
+test: clean unitTest
+	./unitTest
 
 staticlib: src/libtinyxml2.a
 

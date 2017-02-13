@@ -7,8 +7,7 @@
  * such us MATLAB, Fortran, and GNU Octave
  */
 
-#include <stdio.h>
-#include <cstdlib>
+
 #include "read_hdf5.h"
 
 //=============================================================================
