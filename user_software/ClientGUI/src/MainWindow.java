@@ -8,7 +8,7 @@
  *
  * @author jiaqi_000
  */
-import ch.systemsx.cisd.hdf5.HDF5FactoryProvider;
+import ch.systemsx.cisd.hdf5.HDF5Factory;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JDesktopPane;
@@ -56,8 +56,8 @@ public class MainWindow extends JFrame{
                         if (result == JFileChooser.CANCEL_OPTION)
                             JOptionPane.showMessageDialog(null, "No file is selected.");
                         else{
-                            IHDF5SimpleReader reader = HDF5FactoryProvider.get().openForReading(fileChooser.getSelectedFile());
-                            data = reader.readDoubleMatrix(fileChooser.getSelectedFile().getAbsolutePath());
+                            IHDF5SimpleReader reader = HDF5Factory.open(fileChooser.getSelectedFile());
+                            data = reader.readDoubleMatrix("mydata");
                             reader.close();
                             JOptionPane.showMessageDialog(null, "You have loaded the data file.");
                         }
@@ -69,7 +69,7 @@ public class MainWindow extends JFrame{
                     public void actionPerformed(ActionEvent event){
                         JInternalFrame frame = new JInternalFrame(
                             "Heat Graph", true, true, true, true);
-                        HeatGraph hGraph = new HeatGraph();
+                        HeatGraph hGraph = new HeatGraph(data);
                         frame.add(hGraph, BorderLayout.CENTER);
                         frame.pack();
                         theDesktop.add(frame);
