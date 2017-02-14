@@ -3,20 +3,13 @@
 # Error 2: make tester can't find tinyxml2 functions
 #
 
-# Determine the platform
-UNAME_S := $(shell uname -s)
-
 # CC
-ifeq ($(UNAME_S),Darwin)
-  CC := clang++ -arch x86_64
-else
-  CC := g++
-endif
+CC := h5c++
 
 # Folders
 SRCDIR := src
 BUILDDIR := build
-TARGET := bin
+TARGETDIR := bin
 
 # Targets
 EXECUTABLE := SimulationRunner
