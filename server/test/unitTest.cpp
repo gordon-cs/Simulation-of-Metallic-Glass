@@ -2,8 +2,8 @@
  * created by Kuo Lu
  */
 
-// #include "../controller.cc"
-#include "src/tinyxml2.h"
+//#include "../controller.cc"
+#include "tinyxml2.h"
 #include <cassert>
 #include <iostream>
 #include <vector>

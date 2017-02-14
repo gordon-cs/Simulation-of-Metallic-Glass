@@ -3,11 +3,12 @@
 /user_software/ClientGUI/dist/
 
 # Ignore the build and lib dirs
-build
-lib/*
+server/build
+server/lib/*
 
 # Ignore any executables
-bin/*
+server/bin/*
 
 # Ignore Mac specific files
-.DS_Store
+.vscode
+*.dat

@@ -4,7 +4,7 @@
 	#endif
 #endif
 
-#include "src/tinyxml2.h"
+#include "tinyxml2.h"
 #include <cstdlib>
 #include <cstring>
 #include <ctime>

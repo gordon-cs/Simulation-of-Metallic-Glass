@@ -9,7 +9,7 @@
 #include <math.h>
 // #include <string>
 #include <vector>
-#include "../include/tinyxml2.h"
+#include "tinyxml2.h"
 // #include "sequential.cpp"
 
 using namespace tinyxml2;
