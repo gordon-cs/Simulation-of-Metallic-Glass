@@ -6,32 +6,18 @@
 #include <stdio.h>
 #include <cstdlib>
 #include <vector>
-#include "../include/read_hdf5.h"
-#include "../include/default_constants.h"
+#include "read_hdf5.h"
+#include <H5Cpp.h>
 using namespace std;
-
-//------------------- assign constants to default values ----------------------
-
-double radius = RADIUS;             // radius of the tube
-double thickness = THICKNESS;       // thickness of the tube
-double height = HEIGHT;             // height of the tube
-double dr = DR;                     // infinitesimal width step
-double dz = DZ;                     // infinitesimal height step
-double dt = DT;                     // infinitesimal time step, dr^2 >= 4*dt
-double m = M;
-double n = N;
-double r = R;
-double mc = MC;
-double qc = QC;
 
 //=============================================================================
 //================== Sequential calculation functions =========================
 
-void sequential( double inputs)
+void sequential( H5::H5File* file)
 {
   // if (input_variables.size() == inputs.size()){
   //   for(int i = 0; i < inputs.size(); i++){
-       printf( "Hello this is Sequential version; \nthe is: %f\n", inputs );
+       printf( "Hello this is Sequential version;\n" );
   //   }
   // }
   // else EXIT_FAILURE;
