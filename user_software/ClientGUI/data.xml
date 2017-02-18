@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<calculation method="sequential">
+  <general>
+    <time_length>15</time_length>
+  </general>
+  <tube>
+    <radius>7</radius>
+    <thickness>2</thickness>
+    <height>45</height>
+  </tube>
+  <material>
+    <tempreture>1200</tempreture>
+    <conductivity>1.2</conductivity>
+  </material>
+  <reservoir>
+    <init_tempreture>100</init_tempreture>
+  </reservoir>
+</calculation>

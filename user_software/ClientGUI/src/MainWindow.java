@@ -20,6 +20,7 @@ import ch.systemsx.cisd.hdf5.IHDF5SimpleReader;
 
 public class MainWindow extends JFrame{
     private JDesktopPane theDesktop;
+    private InputWindow inputWindow;
     double[][] data;
     // set up GUI
     public MainWindow()
@@ -41,6 +42,8 @@ public class MainWindow extends JFrame{
         setJMenuBar( bar );
         
         theDesktop = new JDesktopPane();
+        inputWindow = new InputWindow();
+        theDesktop.add(inputWindow);
         add( theDesktop );
 // opening file is not working, don't know why, something about the hdf5 lib.       
         open.addActionListener(
@@ -76,10 +79,7 @@ public class MainWindow extends JFrame{
         newCal.addActionListener(
                 new ActionListener(){
                     public void actionPerformed(ActionEvent event){
-                        
-                        InputWindow iWindow = new InputWindow();
-                        theDesktop.add(iWindow);
-                        iWindow.setVisible(true);
+                        inputWindow.setVisible(true);
                     }
                 }
         );
