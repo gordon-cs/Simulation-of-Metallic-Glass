@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<calculation method="sequential">
+    <time_length>15</time_length>
+    <radius>7</radius>
+    <thickness>2</thickness>
+    <height>45</height>
+    <tempreture>1200</tempreture>
+    <conductivity>1.2</conductivity>
+    <init_tempreture>100</init_tempreture>
+</calculation>
