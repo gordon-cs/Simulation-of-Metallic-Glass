@@ -20,7 +20,10 @@ import ch.systemsx.cisd.hdf5.IHDF5SimpleReader;
 
 public class MainWindow extends JFrame{
     private JDesktopPane theDesktop;
-    double[][] data;
+    private InputWindow inputWindow;
+    private double[][] data;
+    private boolean loaded = false;
+    
     // set up GUI
     public MainWindow()
     {
@@ -41,8 +44,10 @@ public class MainWindow extends JFrame{
         setJMenuBar( bar );
         
         theDesktop = new JDesktopPane();
+        inputWindow = new InputWindow();
+        theDesktop.add(inputWindow);
         add( theDesktop );
-// opening file is not working, don't know why, something about the hdf5 lib.       
+      
         open.addActionListener(
                 new ActionListener(){
                     public void actionPerformed(ActionEvent event){
@@ -55,6 +60,7 @@ public class MainWindow extends JFrame{
                             IHDF5SimpleReader reader = HDF5Factory.open(fileChooser.getSelectedFile());
                             data = reader.readDoubleMatrix("mydata");
                             reader.close();
+                            loaded = true;
                             JOptionPane.showMessageDialog(null, "You have loaded the data file.");
                         }
                     }
@@ -63,23 +69,24 @@ public class MainWindow extends JFrame{
         graph.addActionListener(
                 new ActionListener(){
                     public void actionPerformed(ActionEvent event){
-                        JInternalFrame frame = new JInternalFrame(
-                            "Heat Graph", true, true, true, true);
-                        HeatGraph hGraph = new HeatGraph(data);
-                        frame.add(hGraph, BorderLayout.CENTER);
-                        frame.pack();
-                        theDesktop.add(frame);
-                        frame.setVisible(true);
+                        if(!loaded){
+                            JOptionPane.showMessageDialog(null, "You must load the hdf5 data file first.");
+                        }else{
+                            JInternalFrame frame = new JInternalFrame(
+                                "Heat Graph", true, true, true, true);
+                            HeatGraph hGraph = new HeatGraph(data);
+                            frame.add(hGraph, BorderLayout.CENTER);
+                            frame.pack();
+                            theDesktop.add(frame);
+                            frame.setVisible(true);
+                        }
                     }
                 }
         );
         newCal.addActionListener(
                 new ActionListener(){
                     public void actionPerformed(ActionEvent event){
-                        
-                        InputWindow iWindow = new InputWindow();
-                        theDesktop.add(iWindow);
-                        iWindow.setVisible(true);
+                        inputWindow.setVisible(true);
                     }
                 }
         );

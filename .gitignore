@@ -11,4 +11,3 @@ server/bin/*
 
 # Ignore Mac specific files
 .vscode
-*.dat

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<calculation method="sequential">
+    <time_length type = "default">15</time_length>
+    <radius type = "default">7</radius>
+    <thickness type = "default">2</thickness>
+    <height type = "double">45</height>
+    <tempreture type = "default">1200</tempreture>
+    <conductivity type = "default">1.2</conductivity>
+    <init_temperature type = "default">100</init_temperature>
+</calculation>
