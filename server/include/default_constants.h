@@ -8,6 +8,7 @@
  #define DEFAULT_CONSTANTS_H
 
  //---------------------------- constants -------------------------------------
+ const double TIME_LENGTH = 15.0;
  const double RADIUS = 7.0;            // radius of the tube
  const double THICKNESS = 1.0;         // thickness of the tube
  const double HEIGHT = 50.0;           // height of the tube

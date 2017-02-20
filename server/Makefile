@@ -1,33 +1,41 @@
-# Makefile for sequential.cc compilation
-# created by: Kuo Lu, Updated on: 01/13/2017
+#
+# Error 1: make returns "can't open output file for writing '/SimulationRunner.ld_kusHpA', errno=13"
+# Error 2: make tester can't find tinyxml2 functions
+#
 
-# define variables
-# CC=g++
-# OBJECTS = sequential.o read_hdf5.o
+# CC
+CC := h5c++
 
-# sequential: $(OBJECTS)
-# 	$(CC) -o sequential $(OBJECTS) -lhdf5
+# Folders
+SRCDIR := src
+BUILDDIR := build
+TARGETDIR := bin
 
-# sequential.o : read_hdf5.h default_constants.h
-# read_hdf5.o : read_hdf5.h
+# Targets
+EXECUTABLE := SimulationRunner
+TARGET := $(TARGETDIR)/$(EXECUTABLE)
+ 
+SRCEXT := cpp
+SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
+OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
+CFLAGS := -g # -Wall
+LIB := -lhdf5
+INC := -I include
 
-# .PHONY : clean
-# clean:
-# 	rm sequential $(OBJECTS)
+$(TARGET): $(OBJECTS)
+	@echo " Linking..."
+	@echo " $(CC) $^ -o $(TARGET) $(LIB)"; $(CC) $^ -o $(TARGET) $(LIB)
 
-all: controller staticlib
+$(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
+	@mkdir -p $(BUILDDIR)
+	@echo " $(CC) $(CFLAGS) $(INC) -c -o $@ $<"; $(CC) $(CFLAGS) $(INC) -c -o $@ $<
 
-rebuild: clean all
-
-controller: controller.cc src/libtinyxml2.a
-
-.PHONY : clean
 clean:
-	$(RM) src/*.a src/*.o controller
+	@echo " Cleaning..."
+	@echo " $(RM) -r $(BUILDDIR) $(TARGET)"; $(RM) -r $(BUILDDIR) $(TARGET)
 
-staticlib: src/libtinyxml2.a
+# Tests
+tester:
+	$(CC) $(CFLAGS) test/unitTest.cpp $(INC) $(LIB) -o bin/unitTest
 
-src/libtinyxml2.a: src/tinyxml2.o
-	$(AR) $(ARFLAGS)s $@ $^
-	
-tinyxml2.o: src/tinyxml2.cpp src/tinyxml2.h
+.PHONY: clean
