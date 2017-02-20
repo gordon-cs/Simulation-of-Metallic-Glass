@@ -24,7 +24,7 @@ import org.jdom2.output.XMLOutputter;
 public class InputWindow extends JInternalFrame {
 
     /**
-     * Creates new form InputWindow2
+     * Creates new form InputWindow
      */
     public InputWindow() {
         initComponents();
@@ -43,25 +43,55 @@ public class InputWindow extends JInternalFrame {
                             Element calculation = new Element("calculation");
                             calculation.setAttribute(new Attribute("method","sequential"));
                             Document doc = new Document(calculation);
-
-                            Element general = new Element("general");
-                            general.addContent(new Element("time_length").setText(timeT.getText()));
-                            doc.getRootElement().addContent(general);
-
-                            Element tube = new Element("tube");
-                            tube.addContent(new Element("radius").setText(radiusT.getText()));
-                            tube.addContent(new Element("thickness").setText(thicknessT.getText()));
-                            tube.addContent(new Element("height").setText(heightT.getText()));
-                            doc.getRootElement().addContent(tube);
-
-                            Element material = new Element("material");
-                            material.addContent(new Element("tempreture").setText(mTempT.getText()));
-                            material.addContent(new Element("conductivity").setText(conductivityT.getText()));
-                            doc.getRootElement().addContent(material);
-
-                            Element reservoir = new Element("reservoir");
-                            reservoir.addContent(new Element("init_tempreture").setText(rTempT.getText()));
-                            doc.getRootElement().addContent(reservoir);
+                            
+                            Element tl = new Element("time_length");
+                            tl.setAttribute("type","default");
+                            tl.setText(timeT.getText());
+                            Element r = new Element("radius");
+                            r.setAttribute("type","default");
+                            r.setText(radiusT.getText());
+                            Element th = new Element("thickness");
+                            th.setAttribute("type","default");
+                            th.setText(thicknessT.getText());
+                            Element h = new Element("height");
+                            h.setAttribute("type","default");
+                            h.setText(heightT.getText());
+                            Element t = new Element("height");
+                            t.setAttribute("type","default");
+                            t.setText(mTempT.getText());
+                            Element c = new Element("conductivity");
+                            c.setAttribute("type","default");
+                            c.setText(conductivityT.getText());
+                            Element it = new Element("init_tempreture");
+                            it.setAttribute("type","default");
+                            it.setText(rTempT.getText());
+                            
+                            calculation.addContent(tl);
+                            calculation.addContent(r);
+                            calculation.addContent(th);
+                            calculation.addContent(h);
+                            calculation.addContent(t);
+                            calculation.addContent(c);
+                            calculation.addContent(it);
+                            //format changed
+//                            Element general = new Element("general");
+//                            general.addContent(new Element("time_length").setText(timeT.getText()));
+//                            doc.getRootElement().addContent(general);
+//
+//                            Element tube = new Element("tube");
+//                            tube.addContent(new Element("radius").setText(radiusT.getText()));
+//                            tube.addContent(new Element("thickness").setText(thicknessT.getText()));
+//                            tube.addContent(new Element("height").setText(heightT.getText()));
+//                            doc.getRootElement().addContent(tube);
+//
+//                            Element material = new Element("material");
+//                            material.addContent(new Element("tempreture").setText(mTempT.getText()));
+//                            material.addContent(new Element("conductivity").setText(conductivityT.getText()));
+//                            doc.getRootElement().addContent(material);
+//
+//                            Element reservoir = new Element("reservoir");
+//                            reservoir.addContent(new Element("init_tempreture").setText(rTempT.getText()));
+//                            doc.getRootElement().addContent(reservoir);
 
                             XMLOutputter xmlOutput = new XMLOutputter();
                             xmlOutput.setFormat(Format.getPrettyFormat());

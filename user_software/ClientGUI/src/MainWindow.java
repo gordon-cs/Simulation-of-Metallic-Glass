@@ -45,7 +45,7 @@ public class MainWindow extends JFrame{
         inputWindow = new InputWindow();
         theDesktop.add(inputWindow);
         add( theDesktop );
-// opening file is not working, don't know why, something about the hdf5 lib.       
+      
         open.addActionListener(
                 new ActionListener(){
                     public void actionPerformed(ActionEvent event){
